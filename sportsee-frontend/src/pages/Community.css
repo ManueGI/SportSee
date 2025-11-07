@@ -1,0 +1,14 @@
+.community{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  padding:32px;
+}
+.community__card{
+  background:#282d30;
+  color:#fff;
+  padding:24px;
+  border-radius:8px;
+  max-width:760px;
+}

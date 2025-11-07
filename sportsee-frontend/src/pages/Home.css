@@ -1,0 +1,174 @@
+.user {
+  padding: 20px 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.user__header {
+  margin-bottom: 40px;
+}
+
+.user__greeting {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: #020203;
+}
+
+.user__name {
+  color: #FF0101;
+}
+
+.user__congratulations {
+  font-size: 24px;
+  color: #020203;
+  margin: 0;
+}
+
+.user__content {
+  display: flex;
+  gap: 30px;
+}
+
+.user__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user__stats-row {
+  display: flex;
+  gap: 20px;
+}
+
+.user__chart-placeholder {
+  background: #FBFBFB;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.user__chart-placeholder h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #9B9EAC;
+  margin: 0 0 20px 0;
+}
+
+.user__chart-placeholder h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9B9EAC;
+  margin: 0 0 15px 0;
+}
+
+.user__sidebar {
+  width: 258px;
+  flex-shrink: 0;
+}
+
+.user__key-data {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+
+.user__data-card {
+  background: #FBFBFB;
+  border-radius: 5px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.2s ease;
+}
+
+.user__data-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user__data-icon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.user__data-card--calories .user__data-icon {
+  background: rgba(255, 1, 1, 0.1);
+}
+
+.user__data-card--protein .user__data-icon {
+  background: rgba(74, 184, 255, 0.1);
+}
+
+.user__data-card--carbs .user__data-icon {
+  background: rgba(249, 206, 47, 0.1);
+}
+
+.user__data-card--fat .user__data-icon {
+  background: rgba(253, 81, 129, 0.1);
+}
+
+.user__data-info {
+  flex: 1;
+}
+
+.user__data-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #282D30;
+  margin: 0 0 5px 0;
+}
+
+.user__data-label {
+  font-size: 14px;
+  color: #9B9EAC;
+  margin: 0;
+  font-weight: 500;
+}
+
+.user__loading, .user__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+  .user {
+    padding: 0;
+  }
+
+  .user__sidebar {
+    width: 150px;
+  }
+
+  .user__key-data {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .user__data-card {
+    flex: 1 1 180px;
+    min-width: 160px;
+    padding: 16px;
+  }
+
+  .user__greeting { font-size: 36px; }
+  .user__congratulations { font-size: 18px; }
+  .user__data-icon { width: 48px; height: 48px; font-size: 24px; }
+  .user__data-value { font-size: 18px; }
+  .user__data-label { font-size: 13px; }
+}

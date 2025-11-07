@@ -1,0 +1,22 @@
+.notfound{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  padding:32px;
+}
+.notfound__card{
+  background: #282d30;
+  color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  text-align:center;
+  max-width:480px;
+}
+.notfound__card h1{
+  margin:0 0 8px 0;
+}
+.notfound__card p{
+  margin:0;
+  opacity:0.9;
+}
