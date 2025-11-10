@@ -1,5 +1,10 @@
 const API_BASE_URL = 'http://localhost:3000'
 
+import UserModel from '../models/UserModel'
+import ActivityModel from '../models/ActivityModel'
+import AverageSessionsModel from '../models/AverageSessionsModel'
+import PerformanceModel from '../models/PerformanceModel'
+
 let MOCK_DATA_CACHE = null
 
 const fetchAllMocks = async () => {
@@ -17,7 +22,7 @@ export const getUserMainData = async (userId, useMocks = false) => {
     if (useMocks) {
       const all = await fetchAllMocks()
       const found = (all.USER_MAIN_DATA || []).find(u => u.id === Number(userId))
-      return found || null
+      return found ? UserModel.fromApi(found) : null
     }
 
     const response = await fetch(`${API_BASE_URL}/user/${userId}`)
@@ -25,7 +30,7 @@ export const getUserMainData = async (userId, useMocks = false) => {
       throw new Error(`Erreur HTTP: ${response.status}`)
     }
     const data = await response.json()
-    return data.data
+    return UserModel.fromApi(data)
   } catch (error) {
     console.error('Erreur lors de la récupération des données utilisateur:', error)
     throw error
@@ -37,7 +42,7 @@ export const getUserActivity = async (userId, useMocks = false) => {
     if (useMocks) {
       const all = await fetchAllMocks()
       const found = (all.USER_ACTIVITY || []).find(a => a.userId === Number(userId))
-      return found || null
+      return found ? ActivityModel.fromApi(found) : null
     }
 
     const response = await fetch(`${API_BASE_URL}/user/${userId}/activity`)
@@ -45,7 +50,7 @@ export const getUserActivity = async (userId, useMocks = false) => {
       throw new Error(`Erreur HTTP: ${response.status}`)
     }
     const data = await response.json()
-    return data.data
+    return ActivityModel.fromApi(data)
   } catch (error) {
     console.error('Erreur lors de la récupération de l\'activité:', error)
     throw error
@@ -57,7 +62,7 @@ export const getUserAverageSessions = async (userId, useMocks = false) => {
     if (useMocks) {
       const all = await fetchAllMocks()
       const found = (all.USER_AVERAGE_SESSIONS || []).find(a => a.userId === Number(userId))
-      return found || null
+      return found ? AverageSessionsModel.fromApi(found) : null
     }
 
     const response = await fetch(`${API_BASE_URL}/user/${userId}/average-sessions`)
@@ -65,7 +70,7 @@ export const getUserAverageSessions = async (userId, useMocks = false) => {
       throw new Error(`Erreur HTTP: ${response.status}`)
     }
     const data = await response.json()
-    return data.data
+    return AverageSessionsModel.fromApi(data)
   } catch (error) {
     console.error('Erreur lors de la récupération des sessions moyennes:', error)
     throw error
@@ -77,15 +82,14 @@ export const getUserPerformance = async (userId, useMocks = false) => {
     if (useMocks) {
       const all = await fetchAllMocks()
       const found = (all.USER_PERFORMANCE || []).find(a => a.userId === Number(userId))
-      return found || null
+      return found ? PerformanceModel.fromApi(found) : null
     }
-
     const response = await fetch(`${API_BASE_URL}/user/${userId}/performance`)
     if (!response.ok) {
       throw new Error(`Erreur HTTP: ${response.status}`)
     }
     const data = await response.json()
-    return data.data
+    return PerformanceModel.fromApi(data)
   } catch (error) {
     console.error('Erreur lors de la récupération des performances:', error)
     throw error

@@ -134,7 +134,7 @@ function Home() {
               <RadarPerformanceChart dataPerformance={dataPerformance} />
             </div>
             <div className="user__chart-placeholder">
-              <PurcentageChart score={userData?.todayScore || userData?.score} />
+              <PurcentageChart score={userData?.todayScore} />
             </div>
           </div>
         </div>
